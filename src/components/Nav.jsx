@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom';
+
 import logo from '../assets/logo.svg';
 import {
-  Booksmarks,
+  Bookmarks,
   Explore,
   Home,
   Lists,
@@ -11,7 +13,7 @@ import {
   Plus,
   Profile,
 } from './NavIcons';
-import NavLink from './NavLink';
+import NavItem from './NavItem';
 
 function Nav() {
   const LINKS = [
@@ -47,8 +49,8 @@ function Nav() {
     },
     {
       id: 6,
-      text: 'Booksmarks',
-      Icon: <Booksmarks />,
+      text: 'Bookmarks',
+      Icon: <Bookmarks />,
       mobile: false,
     },
     {
@@ -66,27 +68,29 @@ function Nav() {
   ];
 
   return (
-    <div className="h-full flex flex-col justify-between items-center p-4">
+    <div className="h-full flex flex-col justify-between items-center py-4">
       {/* Logo */}
       <div className="hidden sm:block xl:-ml-32 py-4">
-        <img className="w-8 cursor-pointer" src={logo} alt="twitter logo" />
+        <Link to="/">
+          <img className="w-8 cursor-pointer" src={logo} alt="twitter logo" />
+        </Link>
       </div>
       {/* Navigation Section */}
       <div className="flex-1 flex flex-col items-center space-y-6">
         {/* Navigation List */}
-        <div className="fixed w-full bottom-0 right-0 bg-gray-100 py-1 px-2 flex justify-around sm:bg-white sm:p-0 sm:static sm:flex-col sm:space-y-1">
+        <div className="fixed w-full bottom-0 right-0 bg-white py-1 px-2 flex justify-around sm:p-0 sm:static sm:flex-col sm:space-y-1">
           {LINKS.map((link) => {
             if (link.mobile) {
               return (
-                <NavLink key={link.id} text={link.text} hidden={false}>
+                <NavItem key={link.id} text={link.text} hidden={false}>
                   {link.Icon}
-                </NavLink>
+                </NavItem>
               );
             } else {
               return (
-                <NavLink key={link.id} text={link.text} hidden={true}>
+                <NavItem key={link.id} text={link.text} hidden={true}>
                   {link.Icon}
-                </NavLink>
+                </NavItem>
               );
             }
           })}

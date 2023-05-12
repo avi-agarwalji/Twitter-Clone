@@ -89,7 +89,7 @@ export function Lists() {
     </svg>
   );
 }
-export function Booksmarks() {
+export function Bookmarks() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
