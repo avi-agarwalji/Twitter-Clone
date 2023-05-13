@@ -12,8 +12,9 @@ import {
   Options,
   Plus,
   Profile,
-} from './NavIcons';
+} from './Icons';
 import NavItem from './NavItem';
+import Avatar from './Avatar';
 
 function Nav() {
   const LINKS = [
@@ -68,49 +69,42 @@ function Nav() {
   ];
 
   return (
-    <div className="h-full flex flex-col justify-between items-center py-4">
+    <div className="h-full flex flex-col justify-between gap-7 py-1 items-center sm:p-4 lg:px-0">
       {/* Logo */}
-      <div className="hidden sm:block xl:-ml-32 py-4">
+      <div className="hidden sm:block xl:-ml-32">
         <Link to="/">
           <img className="w-8 cursor-pointer" src={logo} alt="twitter logo" />
         </Link>
       </div>
       {/* Navigation Section */}
-      <div className="flex-1 flex flex-col items-center space-y-6">
+      <div className="w-full flex-1 flex flex-col items-center space-y-4">
         {/* Navigation List */}
         <div className="fixed w-full bottom-0 right-0 bg-white py-1 px-2 flex justify-around sm:p-0 sm:static sm:flex-col sm:space-y-1">
+          {/* Single Navigation Link */}
           {LINKS.map((link) => {
-            if (link.mobile) {
-              return (
-                <NavItem key={link.id} text={link.text} hidden={false}>
-                  {link.Icon}
-                </NavItem>
-              );
-            } else {
-              return (
-                <NavItem key={link.id} text={link.text} hidden={true}>
-                  {link.Icon}
-                </NavItem>
-              );
-            }
+            return (
+              <NavItem key={link.id} text={link.text} mobile={link.mobile}>
+                {link.Icon}
+              </NavItem>
+            );
           })}
         </div>
         {/* Tweet Button */}
-        <button className="hidden w-3/5 py-2 bg-twitter-blue text-white text-lg font-semibold rounded-full hover:bg-blue-500 sm:block xl:w-full xl:py-3">
+        <button className="hidden w-3/5 py-1 bg-twitter-blue text-white text-lg font-semibold rounded-full hover:bg-blue-500 sm:block xl:w-full xl:py-3">
           <span className="hidden xl:inline">Tweet</span>
           <Plus />
         </button>
       </div>
       {/* User Info Section */}
-      <div className="hidden items-center hover:cursor-pointer hover:bg-gray-200 hover:rounded-full sm:flex xl:space-x-2">
-        <span className="inline-block text-xl font-semibold text-white bg-emerald-800 px-4 py-2 rounded-[100%]">
-          A
-        </span>
+      <div className="hidden p-2 items-center hover:cursor-pointer hover:bg-gray-200 hover:rounded-full sm:flex xl:space-x-2">
+        {/* User Profile Pic */}
+        <Avatar profileIcon="A" color="bg-red-800" />
+        {/* User Info */}
         <div className="hidden xl:inline-block">
           <h4 className="text-base font-semibold">Aadhar Agarwal</h4>
           <p className="text-sm text-gray-700">@AadharAgarwal22</p>
         </div>
-        <div>
+        <div className="hidden xl:inline-block">
           <Options />
         </div>
       </div>
