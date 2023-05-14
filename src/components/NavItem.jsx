@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function NavItem({ children, text, mobile }) {
   const mobStyles =
@@ -12,11 +12,12 @@ function NavItem({ children, text, mobile }) {
       : text === 'Home'
       ? '/'
       : text.toLowerCase();
+
   return (
-    <Link to={href} className={mobile ? mobStyles : styles}>
+    <NavLink to={href} className={mobile ? mobStyles : styles}>
       {children}
       <h2 className="hidden xl:inline xl:text-xl xl:font-medium">{text}</h2>
-    </Link>
+    </NavLink>
   );
 }
 

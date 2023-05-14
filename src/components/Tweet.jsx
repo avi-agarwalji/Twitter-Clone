@@ -25,7 +25,7 @@ export default function Tweet({ tweet }) {
           {tweet.text ? <p className="text-sm">{tweet.text}</p> : null}
           {tweet.img ? (
             <img
-              className="max-w-full mt-4 rounded-xl"
+              className="max-w-full max-h-72 object-contain mt-4 rounded-xl"
               src={tweet.img}
               alt="postImage"
             />
@@ -33,19 +33,19 @@ export default function Tweet({ tweet }) {
         </div>
         {/* Tweet Actions */}
         <div className="mt-2 p-2 flex justify-between">
-          <div className="flex items-center gap-1 text-gray-600 cursor-pointer hover:text-blue-400">
+          <div className="flex items-center gap-1 cursor-pointer hover:text-blue-400">
             <Heart />
             <span>{tweet.like}</span>
           </div>
-          <div className="flex items-center gap-1 text-gray-600 cursor-pointer hover:text-blue-400">
+          <div className="flex items-center gap-1 cursor-pointer hover:text-blue-400">
             <Retweet />
             <span>{tweet.retweet}</span>
           </div>
-          <div className="flex items-center gap-1 text-gray-600 cursor-pointer hover:text-blue-400">
+          <div className="flex items-center gap-1 cursor-pointer hover:text-blue-400">
             <Reply />
             <span>{tweet.reply}</span>
           </div>
-          <div className="flex items-center gap-1 text-gray-600 cursor-pointer hover:text-blue-400">
+          <div className="flex items-center gap-1 cursor-pointer hover:text-blue-400">
             <Share />
             <span>{tweet.share}</span>
           </div>

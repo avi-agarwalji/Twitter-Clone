@@ -7,7 +7,7 @@ export default function TweetForm() {
       <div>
         <Avatar profileIcon="A" color="bg-red-700" />
       </div>
-      <div className="w-full mt-2">
+      <form className="w-full mt-2">
         <input
           className="w-full outline-none text-lg px-2 border-b-2 border-gray-100"
           type="text"
@@ -22,7 +22,7 @@ export default function TweetForm() {
             Tweet
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }

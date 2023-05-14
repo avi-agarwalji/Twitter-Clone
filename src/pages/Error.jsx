@@ -1,10 +1,6 @@
-import { useRouteError } from 'react-router-dom';
 import errorGif from '../assets/error.gif';
 
 export default function Error() {
-  const error = useRouteError();
-  console.error(error);
-
   return (
     <div className="px-6 w-full h-full grid place-items-center">
       <div className="flex flex-col space-y-4">
@@ -14,9 +10,7 @@ export default function Error() {
           <p className="text-lg text-gray-600 font-medium">
             Sorry, an unexpected error has occurred.
           </p>
-          <p className="text-lg text-gray-600 font-medium">
-            <i>{error.statusText || error.message}</i>
-          </p>
+          <p className="text-lg text-gray-600 font-medium"></p>
         </div>
       </div>
     </div>
